@@ -1,0 +1,67 @@
+# === General ===
+.env
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+*.egg
+dist/
+build/
+*.whl
+
+# === Node / Frontend ===
+node_modules/
+.next/
+out/
+.turbo/
+*.tsbuildinfo
+
+# === Python Virtual Environments ===
+venv/
+.venv/
+env/
+
+# === IDEs ===
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# === Docker ===
+docker-compose.override.yml
+
+# === Uploads ===
+uploads/
+media/
+
+# === Database ===
+*.db
+*.sqlite3
+
+# === Logs ===
+*.log
+logs/
+
+# === Coverage ===
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+
+# === pytest ===
+.pytest_cache/
+.mypy_cache/
+
+# === Alembic ===
+# Keep migration files, ignore temp
+*.pyc
+
+# === OS ===
+.DS_Store
+Thumbs.db
+desktop.ini

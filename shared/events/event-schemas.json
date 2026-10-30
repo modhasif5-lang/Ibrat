@@ -1,0 +1,152 @@
+{
+  "topics": {
+    "user.events": {
+      "description": "User lifecycle events",
+      "events": [
+        {
+          "type": "user.created",
+          "payload": {
+            "user_id": "uuid",
+            "email": "string",
+            "full_name": "string",
+            "role": "CUSTOMER | ADMIN",
+            "created_at": "iso8601"
+          }
+        },
+        {
+          "type": "user.updated",
+          "payload": {
+            "user_id": "uuid",
+            "updated_fields": "object"
+          }
+        }
+      ]
+    },
+    "product.events": {
+      "description": "Product catalog events",
+      "events": [
+        {
+          "type": "product.created",
+          "payload": {
+            "product_id": "uuid",
+            "name": "string",
+            "slug": "string",
+            "description": "string",
+            "category_id": "uuid",
+            "subcategory_id": "uuid | null",
+            "collection_id": "uuid | null",
+            "base_price": "decimal",
+            "material": "string",
+            "occasion": "string",
+            "style": "string",
+            "variants": "array",
+            "customizations": "array",
+            "images": "array",
+            "is_active": "boolean",
+            "created_at": "iso8601"
+          }
+        },
+        {
+          "type": "product.updated",
+          "payload": {
+            "product_id": "uuid",
+            "updated_fields": "object"
+          }
+        },
+        {
+          "type": "product.deleted",
+          "payload": {
+            "product_id": "uuid"
+          }
+        }
+      ]
+    },
+    "inventory.events": {
+      "description": "Inventory and stock events",
+      "events": [
+        {
+          "type": "inventory.updated",
+          "payload": {
+            "variant_id": "uuid",
+            "product_id": "uuid",
+            "stock_quantity": "integer",
+            "available_quantity": "integer",
+            "reserved_quantity": "integer"
+          }
+        },
+        {
+          "type": "inventory.low_stock",
+          "payload": {
+            "variant_id": "uuid",
+            "product_id": "uuid",
+            "available_quantity": "integer",
+            "threshold": "integer"
+          }
+        }
+      ]
+    },
+    "review.events": {
+      "description": "Review lifecycle events",
+      "events": [
+        {
+          "type": "review.created",
+          "payload": {
+            "review_id": "uuid",
+            "product_id": "uuid",
+            "user_id": "uuid",
+            "rating": "integer (1-5)",
+            "created_at": "iso8601"
+          }
+        },
+        {
+          "type": "review.updated",
+          "payload": {
+            "review_id": "uuid",
+            "product_id": "uuid",
+            "rating": "integer (1-5)"
+          }
+        },
+        {
+          "type": "review.deleted",
+          "payload": {
+            "review_id": "uuid",
+            "product_id": "uuid"
+          }
+        }
+      ]
+    },
+    "cart.events": {
+      "description": "Cart activity events",
+      "events": [
+        {
+          "type": "cart.updated",
+          "payload": {
+            "user_id": "uuid",
+            "cart_id": "uuid",
+            "items_count": "integer"
+          }
+        }
+      ]
+    },
+    "wishlist.events": {
+      "description": "Wishlist activity events",
+      "events": [
+        {
+          "type": "wishlist.updated",
+          "payload": {
+            "user_id": "uuid",
+            "product_id": "uuid",
+            "action": "added | removed"
+          }
+        }
+      ]
+    }
+  },
+  "envelope": {
+    "event_id": "uuid — unique per event for idempotency",
+    "event_type": "string — e.g. product.created",
+    "timestamp": "iso8601",
+    "source": "string — originating service name",
+    "payload": "object — event-specific data"
+  }
+}
